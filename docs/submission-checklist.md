@@ -17,4 +17,4 @@ Deadline: October 18, 2026, 11:59 PM PDT / October 19, 2026, 12:59 PM Asia/Dhaka
 - No Tinker category, first-user claims, revenue, made-up feedback or guaranteed acceptance/prize.
 - Credit models, licenses, hosted services, test tools and Codex assistance.
 - Disclose every repository change after the official deadline in README.
-- Final publication/deployment verification will be added once performed; this checklist is not proof of acceptance.
+- Publication verified: the owner published the same article ID **4858102**. Public page and unauthenticated API returned HTTP 200; required tags, reviewed content, rendered table, repository and screenshot links were checked. The owner separately confirmed the public application workflow. [Published article](https://dev.to/tanzil_ahmed_e6a826eee8c4/scopeproof-an-evidence-first-answer-to-one-more-thing-3odi). This verification does not establish contest acceptance or a prize.

@@ -1,7 +1,7 @@
 {
   "articleId": 4858102,
-  "status": "draft",
-  "published": false,
+  "status": "published",
+  "published": true,
   "contentReadBackVerified": true,
   "requiredTags": [
     "devchallenge",
@@ -17,8 +17,9 @@
   "publicLiveInferenceManualCheckPassed": true,
   "publicWorkflowConfirmedByUser": true,
   "publicationOwner": "user",
-  "remainingAction": "User will publish the existing DEV draft #4858102. Agent must not publish or create a duplicate.",
-  "finalReadOnlyReview": {
+  "remainingAction": null,
+  "latestProseRevisionVerified": true,
+  "prePublicationReadOnlyReview": {
     "articleId": 4858102,
     "correctOwner": true,
     "stillUnpublished": true,
@@ -29,5 +30,30 @@
     "allArticleLinksExceptAgentBlockedDemoReturned200": true,
     "officialTemplateAndCategoriesRechecked": true
   },
-  "latestProseRevisionVerified": true
+  "url": "https://dev.to/tanzil_ahmed_e6a826eee8c4/scopeproof-an-evidence-first-answer-to-one-more-thing-3odi",
+  "publishedAt": "2026-10-15T19:36:37Z",
+  "publishedAtAsiaDhaka": "2026-10-16T01:36:37+06:00",
+  "verifiedAt": "2026-10-15T19:38:48.459894+00:00",
+  "publicationPerformedByAgent": false,
+  "publicVerification": {
+    "pageHttpStatus": 200,
+    "unauthenticatedApiArticleId": 4858102,
+    "username": "tanzil_ahmed_e6a826eee8c4",
+    "requiredTagsPresent": true,
+    "tags": [
+      "devchallenge",
+      "hf26challenge",
+      "opensource",
+      "ai"
+    ],
+    "bodyMatchesReviewedRepositorySource": true,
+    "renderedTablePresent": true,
+    "requiredTagLinksOnPublicPage": true,
+    "demoAndRepositoryLinksPresent": true,
+    "repositoryHttpStatus": 200,
+    "screenshotSourceHttpStatus": 200,
+    "publicAppWorkflow": "User-performed manual checks confirmed separately; agent runtime egress restriction remains documented."
+  },
+  "contestAcceptanceConfirmed": false,
+  "prizeConfirmed": false
 }

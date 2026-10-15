@@ -4,7 +4,7 @@
 
 ScopeProof compares an original agreement with up to eight client requests. It suggests **Included**, **Extra work**, or **Needs clarification**, checks supporting quotes verbatim, and leaves every final decision to the freelancer. User-entered hours and rates produce a proposed change quote; an editable reply and text/print report make the next conversation easier. Nothing is sent to a client automatically.
 
-Render service URL: **https://scopeproof.onrender.com**. Render reported the deployment live; see [deployment evidence](docs/evidence/deployment.json) for the separately recorded public functional verification state.
+Live demo: **https://scopeproof.onrender.com** · [Published DEV submission](https://dev.to/tanzil_ahmed_e6a826eee8c4/scopeproof-an-evidence-first-answer-to-one-more-thing-3odi). See [deployment evidence](docs/evidence/deployment.json) and [manual public verification](docs/evidence/manual-public-verification.json) for how the workflow was checked.
 
 ![Actual ScopeProof interface, before loading sample or live results](docs/screenshots/overview.png)
 
