@@ -26,4 +26,6 @@ The final comparison used Qwen3.5-9B (Apache 2.0, official model card and Backbo
 
 ## Important limits
 
+An additional **real, unmocked browser→local Node server→Backboard** check exercised the full live-analysis button with consent. It returned HTTP 200, confirmed Qwen3-32B, matched the five expected sample classifications, and verified the returned quotes; provider-analysis latency was **11.960 seconds**. The screenshot and response are recorded in `docs/screenshots/live-review-local.png` and `docs/evidence/local-live-browser.json`. This validates the local application plus real hosted inference; it is separate from public Render verification. `test/live-browser.py` reproduces the workflow against a configured local or public server, with an explicit paid-call opt-in.
+
 Eight hand-authored requests are not a benchmark, guarantee against injection, contract interpretation validation, or evidence of universal accuracy. Matching expected labels after conservative validation does not isolate raw-model accuracy. No claims of customers, feedback, revenue or superiority over a closed model are made.

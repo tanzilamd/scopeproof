@@ -1,0 +1,80 @@
+{
+  "checkedAt": "2026-10-15T18:28:28.030333+00:00",
+  "target": "local Node server with real hosted Backboard inference",
+  "networkMocked": false,
+  "httpStatus": 200,
+  "input": {
+    "scope": "Build a five-page website with a contact enquiry form. The price includes two revision rounds. Customer accounts and online payments are excluded.",
+    "requests": [
+      "Build the contact enquiry form.",
+      "Add customer login.",
+      "Accept online payments.",
+      "Make a third revision round.",
+      "Make the website more engaging."
+    ]
+  },
+  "result": {
+    "rows": [
+      {
+        "id": 1,
+        "request": "Build the contact enquiry form.",
+        "suggested": "Included",
+        "reason": "The agreement explicitly includes building a contact enquiry form.",
+        "quote": "Build a five-page website with a contact enquiry form.",
+        "evidence": "Exact quote verified",
+        "decision": "Included",
+        "hours": ""
+      },
+      {
+        "id": 2,
+        "request": "Add customer login.",
+        "suggested": "Extra work",
+        "reason": "Customer accounts are explicitly excluded in the agreement.",
+        "quote": "Customer accounts and online payments are excluded.",
+        "evidence": "Exact quote verified",
+        "decision": "Extra work",
+        "hours": ""
+      },
+      {
+        "id": 3,
+        "request": "Accept online payments.",
+        "suggested": "Extra work",
+        "reason": "Online payments are explicitly excluded in the agreement.",
+        "quote": "Customer accounts and online payments are excluded.",
+        "evidence": "Exact quote verified",
+        "decision": "Extra work",
+        "hours": ""
+      },
+      {
+        "id": 4,
+        "request": "Make a third revision round.",
+        "suggested": "Extra work",
+        "reason": "The agreement limits revisions to two rounds; a third round exceeds this.",
+        "quote": "The price includes two revision rounds.",
+        "evidence": "Exact quote verified",
+        "decision": "Extra work",
+        "hours": ""
+      },
+      {
+        "id": 5,
+        "request": "Make the website more engaging.",
+        "suggested": "Needs clarification",
+        "reason": "The agreement does not define or include criteria for website engagement.",
+        "quote": null,
+        "evidence": "No supporting quote",
+        "decision": "Needs clarification",
+        "hours": ""
+      }
+    ],
+    "meta": {
+      "mode": "live",
+      "model": "qwen/qwen3-32b",
+      "provider": "Backboard / OpenRouter",
+      "at": "2026-10-15T18:28:27.449Z",
+      "latencyMs": 11960,
+      "inputTokens": 356,
+      "outputTokens": 427,
+      "cleanup": "attempted"
+    }
+  }
+}

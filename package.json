@@ -11,6 +11,7 @@
     "start": "node --use-env-proxy --env-file-if-exists=.env server.mjs",
     "test": "node --test test/*.test.mjs",
     "test:browser": "python test/browser.py",
+    "test:browser:live": "python test/live-browser.py",
     "check:access": "node --use-env-proxy --env-file-if-exists=.env scripts/check-access.mjs",
     "test:live": "node --use-env-proxy --env-file-if-exists=.env scripts/live-eval.mjs"
   },

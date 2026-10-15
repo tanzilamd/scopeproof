@@ -58,6 +58,8 @@ The deterministic suite has **49 passing tests** covering malformed results, mis
 
 Separately, **16 real Chromium checks** exercised the desktop/mobile workflow, report consistency, edited replies, reset, stale responses, literal rendering of hostile text, print and keyboard skip navigation. The AI success/error cases in that browser suite are mocked. Automated axe-core scans reported **zero WCAG 2.1 A/AA violations** in the populated desktop and mobile views after fixes. That is useful coverage, not a claim of full accessibility certification.
 
+I also clicked through a separate **unmocked browser → local application → Backboard** test. It returned all five expected sample labels from Qwen3-32B, with verified quote text and 11.96-second provider latency. That result and a clearly distinguished live-inference screenshot are in the repository; it is not counted as another five independent evaluation examples.
+
 For live evidence I wrote a small, fixed set of **eight synthetic requests**, with expected labels recorded before inference: ordinary included work, explicit exclusions, a page-count overrun, a third revision, ambiguity, unknown revision consumption, and hostile instructions embedded in the agreement and request.
 
 Using the same prompt and conservative validator through one Backboard key:

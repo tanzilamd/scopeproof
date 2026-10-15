@@ -67,6 +67,8 @@ npm start                        # another terminal
 # Default browser path is /usr/bin/chromium; set CHROMIUM_PATH for your installation.
 npm run test:browser              # real browser; AI/error responses are explicitly mocked
 npm run test:live                 # PAID, synthetic two-model evaluation using your Backboard key
+# Optional: against a configured app, one real paid browser request (no mocks):
+# BASE_URL=https://scopeproof.onrender.com RUN_PAID_BROWSER_TEST=1 npm run test:browser:live
 ```
 
 Browser checks use the pinned `axe-core` development dependency. Automated accessibility checks do not establish complete accessibility. Read [test evidence](docs/testing.md), [actual live runs](docs/evidence/), [architecture and safeguards](docs/architecture.md), and [submission readiness](docs/submission-checklist.md). Test counts and live model results are reported separately. The tiny evaluation is diagnostic evidence, not a general benchmark or legal-accuracy claim.

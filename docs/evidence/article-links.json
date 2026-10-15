@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://dev.to/challenges/hacktoberfest-week2-2026-10-12",
+    "status": 200
+  },
+  {
+    "url": "https://github.com/tanzilamd/scopeproof",
+    "status": 200
+  },
+  {
+    "url": "https://github.com/tanzilamd/scopeproof#quick-start",
+    "status": 200
+  },
+  {
+    "url": "https://github.com/tanzilamd/scopeproof/blob/main/docs/architecture.md",
+    "status": 200
+  },
+  {
+    "url": "https://github.com/tanzilamd/scopeproof/blob/main/docs/testing.md",
+    "status": 200
+  },
+  {
+    "url": "https://github.com/tanzilamd/scopeproof/tree/main/docs/evidence",
+    "status": 200
+  }
+]
