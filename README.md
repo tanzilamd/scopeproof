@@ -4,6 +4,10 @@
 
 ScopeProof compares an original agreement with up to eight client requests. It suggests **Included**, **Extra work**, or **Needs clarification**, checks supporting quotes verbatim, and leaves every final decision to the freelancer. User-entered hours and rates produce a proposed change quote; an editable reply and text/print report make the next conversation easier. Nothing is sent to a client automatically.
 
+Render service URL: **https://scopeproof.onrender.com**. Render reported the deployment live; see [deployment evidence](docs/evidence/deployment.json) for the separately recorded public functional verification state.
+
+![Actual ScopeProof interface, before loading sample or live results](docs/screenshots/overview.png)
+
 ## Quick start
 
 Requires **Node.js 24** (tested on 24.19.0). No production dependencies, database, login, build step or external fonts.
@@ -89,6 +93,8 @@ Default demo limits: 6,000 scope characters, 8 requests of 500 characters, 20 li
 Application code: **MIT**, copyright Tanzil Ahmed (existing license retained). Implementation, testing and writing were assisted by OpenAI Codex; the owner is responsible for the published project. No external application source archive or prior implementation was supplied.
 
 Models: [Qwen3-32B](https://huggingface.co/Qwen/Qwen3-32B), and evaluated alternatives credited in the evidence, by the Qwen team, **Apache 2.0**. Model weights are not bundled. Open weights make a different host, quantization or future local deployment possible; the current deployment still uses hosted APIs and makes no measured privacy or cost advantage claim against closed models.
+
+Actual comparison model: [Qwen3.5-9B](https://huggingface.co/Qwen/Qwen3.5-9B), Apache 2.0. It completed the two-request adversarial fixture but timed out on the six-request fixture under the 45-second application limit; no automatic retries were made. See [comparison evidence](docs/evidence/comparison.json). Qwen3-32B is explicitly selected for the deployed demo.
 
 Services: [Backboard](https://backboard.io), OpenRouter and [Render](https://render.com). Integration references: [Backboard messages](https://docs.backboard.io/concepts/messages), [billing](https://docs.backboard.io/concepts/billing), verified published `backboard-sdk` 1.5.19 API definitions (SDK not bundled), [Render API](https://render.com/docs/api) and [official OpenAPI](https://api-docs.render.com/openapi/render-public-api-1.json). Test tools: [Playwright](https://playwright.dev/python/) (Apache 2.0), [axe-core](https://github.com/dequelabs/axe-core) (MPL 2.0). Interface uses original CSS, system fonts and text symbols; no third-party imagery or fabricated customer material.
 

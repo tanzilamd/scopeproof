@@ -1,0 +1,22 @@
+{
+  "baseUrl": "http://127.0.0.1:3000",
+  "checks": [
+    "desktop landing page, no horizontal overflow",
+    "clearly labelled sample and incomplete estimates",
+    "human override and rounded quote arithmetic",
+    "edited reply preserved; exported report matches overrides and current quote",
+    "copy action or explicit browser clipboard fallback",
+    "invalid monetary input blocks export",
+    "axe WCAG 2.1 A/AA automated scan: zero violations in populated desktop view",
+    "editing source invalidates stale evidence, reply and export",
+    "provider error is visible and busy state clears (mocked integration)",
+    "untrusted model text renders literally without HTML execution (mocked integration)",
+    "in-flight stale result discarded (mocked integration)",
+    "reset clears agreement, review and reply",
+    "390px mobile workflow, no overflow, zero automated WCAG A/AA violations",
+    "print stylesheet contains the current report",
+    "keyboard skip navigation",
+    "no browser JavaScript errors"
+  ],
+  "javascriptErrors": []
+}

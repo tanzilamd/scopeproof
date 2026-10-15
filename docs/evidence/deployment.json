@@ -1,0 +1,11 @@
+{
+  "url": "https://scopeproof.onrender.com",
+  "plan": "free",
+  "serviceId": "srv-db8hj4ss728c738odo20",
+  "deployId": "dep-db8hj5cs728c738odpi0",
+  "providerStatus": "live",
+  "commit": "6958444ffb49ed3b9c30f062199725e744f655cd",
+  "finishedAt": "2026-10-15T18:21:43.077868Z",
+  "publicFunctionalCheck": "pending: onboarding egress policy has not yet applied the newly created hostname",
+  "renderPromotionalCredit": "Not independently verified. Official public API exposes no balance endpoint; free compute was selected. No paid upgrade or top-up was enabled."
+}

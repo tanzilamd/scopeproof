@@ -1,0 +1,60 @@
+{
+  "checkedAt": "2026-10-15T18:24:59.603113+00:00",
+  "catalogueEntries": [
+    {
+      "name": "qwen/qwen3-14b",
+      "provider": "openrouter",
+      "supports_json_output": true,
+      "input_cost_per_1m_tokens": 0.12,
+      "output_cost_per_1m_tokens": 0.24,
+      "context_limit": 131072,
+      "max_output_tokens": 16384,
+      "last_updated": "2026-09-17T19:38:06"
+    },
+    {
+      "name": "qwen/qwen3-235b-a22b-2507",
+      "provider": "openrouter",
+      "supports_json_output": true,
+      "input_cost_per_1m_tokens": 0.0875,
+      "output_cost_per_1m_tokens": 0.35,
+      "context_limit": 262144,
+      "max_output_tokens": 235929,
+      "last_updated": "2026-09-17T19:38:06"
+    },
+    {
+      "name": "qwen/qwen3-32b",
+      "provider": "openrouter",
+      "supports_json_output": true,
+      "input_cost_per_1m_tokens": 0.08,
+      "output_cost_per_1m_tokens": 0.28,
+      "context_limit": 131072,
+      "max_output_tokens": 16384,
+      "last_updated": "2026-09-17T19:38:06"
+    },
+    {
+      "name": "qwen/qwen3-8b",
+      "provider": "openrouter",
+      "supports_json_output": true,
+      "input_cost_per_1m_tokens": 0.117,
+      "output_cost_per_1m_tokens": 0.455,
+      "context_limit": 131072,
+      "max_output_tokens": 8192,
+      "last_updated": "2026-09-17T19:38:06"
+    },
+    {
+      "name": "qwen/qwen3.5-9b",
+      "provider": "openrouter",
+      "supports_json_output": true,
+      "input_cost_per_1m_tokens": 0.1,
+      "output_cost_per_1m_tokens": 0.15,
+      "context_limit": 262144,
+      "max_output_tokens": 32768,
+      "last_updated": "2026-09-22T17:05:02"
+    }
+  ],
+  "inferenceNotes": {
+    "qwen/qwen3-8b": "Listed but provider FAILED; diagnostic reported deprecation on 2026-10-09. No fallback.",
+    "qwen/qwen3-14b": "Listed but provider FAILED. No accepted result.",
+    "qwen/qwen3-235b-a22b-2507": "Listed but provider FAILED. No accepted result."
+  }
+}

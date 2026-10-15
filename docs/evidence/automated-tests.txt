@@ -1,0 +1,61 @@
+
+> scopeproof@1.0.0 test
+> node --test test/*.test.mjs
+
+✔ sample explicitly covers included, exclusions, revision limit and ambiguity (2.479641ms)
+✔ input rejects empty scope (0.363657ms)
+✔ input rejects oversized scope (0.13944ms)
+✔ input rejects too many requests (0.126911ms)
+✔ input rejects long request (0.228814ms)
+✔ input rejects empty request (0.148734ms)
+✔ input rejects invalid types (0.130697ms)
+✔ input rejects long project (0.120511ms)
+✔ input trims surrounding whitespace but preserves evidence text (0.302365ms)
+✔ result rejects missing result (0.33882ms)
+✔ result rejects duplicate id (3.554348ms)
+✔ result rejects wrong classification (0.208775ms)
+✔ result rejects noninteger id (1.053365ms)
+✔ result rejects oversized reason (0.147592ms)
+✔ result rejects missing quote field (0.149254ms)
+✔ invalid JSON is rejected rather than repaired (0.194773ms)
+✔ invented and paraphrased quotations are removed and decision downgraded (0.261073ms)
+✔ unsupported included/extra decisions become clarification (0.121663ms)
+✔ shuffled results are restored to request order, model request text is ignored (0.14623ms)
+✔ exact-match check is case-sensitive and does not normalize model quotes (0.111878ms)
+✔ decimal arithmetic, rounding and overrides use only user decisions (18.93439ms)
+✔ missing hours produce incomplete estimate, no invented total (0.291859ms)
+✔ zero estimates are explicit and permitted (0.223847ms)
+✔ rate rejects "-1" (0.174973ms)
+✔ rate rejects "NaN" (0.120691ms)
+✔ rate rejects "Infinity" (0.117737ms)
+✔ rate rejects "1e4" (0.130967ms)
+✔ rate rejects "1.001" (0.123476ms)
+✔ rate rejects "100001" (0.115354ms)
+✔ rate rejects "" (0.176295ms)
+✔ hours reject -1 (0.248985ms)
+✔ hours reject 1001 (0.186991ms)
+✔ hours reject NaN (0.123236ms)
+✔ hours reject 1.001 (0.171177ms)
+✔ JPY and KWD respect currency minor units (0.527534ms)
+✔ report distinguishes sample, override, incomplete estimate and edited reply (0.434894ms)
+✔ HTTP workflow, security headers and private files (57.829373ms)
+✔ missing key, unverified configuration or closed model cannot trigger inference (14.236331ms)
+✔ reject invalid JSON, body size, media type, method and cross-origin (17.375178ms)
+✔ attempt limits apply to failures; forwarded headers cannot evade them (7.952816ms)
+✔ concurrent requests are limited (5.830388ms)
+✔ mocked Backboard contract: explicit model, isolated thread, no memory/search and cleanup (1.824074ms)
+✔ hostile input remains data in separate prompt field (mocked, not live quality evidence) (0.629938ms)
+✔ provider 401 returns safe error without raw details (0.61801ms)
+✔ provider 429 returns safe error without raw details (0.448444ms)
+✔ provider 500 returns safe error without raw details (0.357688ms)
+✔ network errors and timeouts fail safely without automatic retry (1001.430609ms)
+✔ wrong/unconfirmed model, malformed JSON and oversized responses fail closed (1.4354ms)
+✔ HTTP 200 provider FAILED status is not mistaken for a successful inference (0.629667ms)
+ℹ tests 49
+ℹ suites 0
+ℹ pass 49
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1206.954399
