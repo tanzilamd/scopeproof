@@ -7,12 +7,26 @@
     "devchallenge",
     "hf26challenge"
   ],
-  "publicationBlocker": "Public live AI now passed user-performed screenshot verification. Public quote arithmetic, override, edited reply/export, and mobile/source-edit checks still need manual results because the agent runtime separately cannot reach the app.",
+  "publicationBlocker": null,
   "ownershipVerified": "tanzil_ahmed_e6a826eee8c4",
-  "updatedAt": "2026-10-15T19:08:06.784296+00:00",
+  "updatedAt": "2026-10-15T19:25:30.460381+00:00",
   "officialTemplateAndCategoryRequirementsRechecked": true,
   "quoteStatusClarificationIncluded": true,
   "currentAutomatedTestsPassed": 51,
   "currentLocalBrowserChecksPassed": 19,
-  "publicLiveInferenceManualCheckPassed": true
+  "publicLiveInferenceManualCheckPassed": true,
+  "publicWorkflowConfirmedByUser": true,
+  "publicationOwner": "user",
+  "remainingAction": "User will publish the existing DEV draft #4858102. Agent must not publish or create a duplicate.",
+  "finalReadOnlyReview": {
+    "articleId": 4858102,
+    "correctOwner": true,
+    "stillUnpublished": true,
+    "bodyMatchesRepository": true,
+    "requiredTagsPresent": true,
+    "escapedMarkdownHeadings": 0,
+    "escapedMarkdownLinks": 0,
+    "allArticleLinksExceptAgentBlockedDemoReturned200": true,
+    "officialTemplateAndCategoriesRechecked": true
+  }
 }

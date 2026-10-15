@@ -6,7 +6,7 @@
   "providerStatus": "live",
   "commit": "6689d192b1a75466078ab02f99dcead3ad3f8459",
   "finishedAt": "2026-10-15T19:12:13.187356Z",
-  "publicFunctionalCheck": "User-performed screenshots show successful Live AI analysis with five expected classifications and matching scope quotes. Quote arithmetic, overrides, edited export, mobile/source-edit checks remain pending manual evidence. Agent runtime proxy restriction remains separately documented.",
+  "publicFunctionalCheck": "User-provided Live AI screenshots show five expected classifications and matching scope quotes. User subsequently confirmed the requested quote, override, missing/zero hours, reply/copy, export, mobile and source-edit checks all worked. These are user-performed public checks; the agent did not independently run public browser checks or inspect an exported report file. See manual-public-verification.json.",
   "renderPromotionalCredit": "Not independently verified. Official public API exposes no balance endpoint; free compute was selected. No paid upgrade or top-up was enabled.",
   "previousDeployments": [
     {

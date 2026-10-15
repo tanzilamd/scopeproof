@@ -36,10 +36,22 @@
     "credit_type": "regular"
   },
   "billingCorrelationNote": "A new qwen/qwen3-32b billing event was observed around this user-performed check. No agent inference call was made in this interval. The screenshots do not display a provider request ID or latency.",
-  "stillRequiresPublicManualEvidence": [
-    "entered-hour quote arithmetic",
-    "human decision override and revised total",
-    "edited reply and downloaded report consistency",
-    "mobile usability and source-edit invalidation"
-  ]
+  "stillRequiresPublicManualEvidence": [],
+  "finalUserConfirmation": {
+    "recordedAt": "2026-10-15T19:25:30.460148+00:00",
+    "userStatement": "sob thik e ache. dev publish ami e kori. tmi ekbar check kore deo.",
+    "meaning": "User confirmed the remaining requested public checks worked and reserved DEV publication for themselves.",
+    "requestedChecksConfirmed": [
+      "entered hours and quote arithmetic",
+      "human override and revised total",
+      "blank, zero and restored hour inputs",
+      "reply editing and copy",
+      "report export",
+      "small-window/mobile usability",
+      "source-edit invalidation"
+    ],
+    "confirmationMethod": "User textual confirmation following the manual checklist; separate from the earlier Live AI screenshots.",
+    "agentIndependentlyInspectedExportFile": false,
+    "agentPerformedPublicBrowserCheck": false
+  }
 }
