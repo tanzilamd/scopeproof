@@ -36,7 +36,7 @@ First verify the current Backboard catalogue, actual inference availability, pri
 1. Load the clearly labelled sample, or enter the real agreement, exclusions and limits, then one request per line.
 2. For live inference, acknowledge that input is sent to hosted AI services and select **Analyze with AI**.
 3. Read each reason and supporting quote. Change any decision using its dropdown.
-4. Enter your own hours for extra work, rate and currency. Missing hours keep the quote incomplete. Each line rounds to the currency's minor unit before summing; tax, discounts and contractual payment terms are outside scope.
+4. Enter your own hours for extra work, rate and currency. **Estimate incomplete** means one or more extra-work requests still have blank hours; the help text counts them. Enter `0` only when you intentionally estimate no charge. Each line rounds to the currency's minor unit before summing; tax, discounts and contractual payment terms are outside scope.
 5. Edit the client reply, copy it, export a text report, or print/save PDF. The report includes your overrides and edited reply. Nothing is sent automatically.
 
 Editing the agreement or requests invalidates the old review. Results arriving after an input change are discarded. Editing estimates preserves your custom reply and asks you to check or refresh it.

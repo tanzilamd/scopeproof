@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-10-15T18:48:22.040987+00:00",
+  "target": "local application, real Chromium interactions",
+  "aiCallsMade": 0,
+  "originalLocation": "public/app.mjs quote-total; also represented honestly in reply/report and historical screenshots",
+  "meaning": "At least one selected Extra work request has no user-entered estimated hours. It is not an unfinished implementation.",
+  "label": "Estimate incomplete",
+  "checks": [
+    "three blank extra-work estimates show missing-hours count 3",
+    "explicit zero hours for all extras produces $0.00 complete estimate",
+    "clearing one hour field restores missing-hours count 1 and incomplete reply",
+    "downloaded incomplete report names Request 3 as not estimated and omits a final proposed total",
+    "entering 1.25, 2 and 0.5 hours at $19.99 yields $74.97",
+    "overriding one extra as Included yields $49.98",
+    "mobile and desktop axe A/AA scans have zero violations; no horizontal overflow"
+  ]
+}

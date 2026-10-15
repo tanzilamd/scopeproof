@@ -1,0 +1,51 @@
+{
+  "checkedAt": "2026-10-15T18:45:26.772557+00:00",
+  "hostname": "scopeproof.onrender.com",
+  "port": 443,
+  "method": "GET",
+  "proxyRoute": "inherited HTTPS proxy; unchanged",
+  "curlExitCode": 56,
+  "proxyConnectHttpStatus": "403",
+  "destinationHttpStatus": "000",
+  "diagnostic": "curl: (56) CONNECT tunnel failed, response 403",
+  "redirectReached": false,
+  "browser": {
+    "loaded": false,
+    "error": "Page.goto: net::ERR_TUNNEL_CONNECTION_FAILED at https://scopeproof.onrender.com/"
+  },
+  "publishedConfiguration": {
+    "version": "be4cac34-3141-4d1b-bcd9-1907479da2d0~cecfgver_6ad11bf3a98481929bd8cf888c8fe66f",
+    "hostnameListed": true,
+    "hasUnpublishedDraft": false
+  },
+  "currentRuntime": {
+    "environmentId": "ccarenv_b64_Y2NhcmVudl81NWFjMzUzYWNjZDg4MTkxYjU0MzhjMzAzMThiOGI4NQ",
+    "observationsCurrent": true,
+    "sourceConfigVersion": "be4cac34-3141-4d1b-bcd9-1907479da2d0~cecfgver_6ad1127ea0788192b6684c60fac18a68",
+    "specRevision": "2",
+    "observedRevision": "2",
+    "networkState": "enforced",
+    "allowedHosts": [
+      "api.backboard.io",
+      "api.render.com",
+      "app.backboard.io",
+      "backboard.io",
+      "dev.to",
+      "developers.forem.com",
+      "docs.backboard.io",
+      "huggingface.co",
+      "render.com"
+    ],
+    "appHostAllowed": false
+  },
+  "diagnosis": "Published configuration contains the requested hostname, but this running instance enforces an older configuration without it. HTTPS CONNECT is denied before destination TLS/HTTP; no application response or redirect was reached.",
+  "unsupportedWorkaroundUsed": false,
+  "requiredPlatformAction": "Synchronize or reconnect this task's runtime to the already published configuration. Do not add the hostname again. No runtime refresh/reconnection capability is exposed in the available tools.",
+  "unchecked": [
+    "public page and static assets",
+    "real inference from public Render service",
+    "public decision overrides and quote arithmetic",
+    "public reply editing and report export"
+  ],
+  "independentChecks": "49 automated tests and 18 real local Chromium checks passed; earlier real local browser/Backboard inference remains separately recorded."
+}

@@ -29,8 +29,26 @@ with sync_playwright() as p:
     expect(page.locator('#review-source')).to_have_text('Illustrative sample')
     expect(page.locator('.review-row')).to_have_count(5)
     expect(page.locator('#notice')).to_contain_text('not live AI')
-    expect(page.locator('#quote-total')).to_have_text('Incomplete')
+    expect(page.locator('#quote-total')).to_have_text('Estimate incomplete')
+    expect(page.locator('#quote-detail')).to_contain_text('3 extra-work requests still need estimated hours')
     passed('clearly labelled sample and incomplete estimates')
+    for i in (2, 3, 4):
+        page.locator(f'#hours-{i}').fill('0')
+    expect(page.locator('#quote-total')).to_have_text('$0.00')
+    expect(page.locator('#reply')).to_have_value(re.compile('Proposed additional total: \\$0.00'))
+    page.locator('#hours-3').fill('')
+    expect(page.locator('#quote-total')).to_have_text('Estimate incomplete')
+    expect(page.locator('#quote-detail')).to_contain_text('1 extra-work request still needs estimated hours')
+    expect(page.locator('#reply')).to_have_value(re.compile('quote is incomplete'))
+    passed('explicit zero hours completes an estimate; clearing hours restores missing-input status')
+    with page.expect_download() as incomplete_event:
+        page.locator('#export').click()
+    incomplete_event.value.save_as(str(OUT / 'incomplete-export.txt'))
+    incomplete_report = (OUT / 'incomplete-export.txt').read_text()
+    assert 'Request 3: not estimated' in incomplete_report
+    assert 'Total: incomplete' in incomplete_report
+    assert 'Proposed additional total:' not in incomplete_report
+    passed('incomplete report export identifies missing hours and never invents a final quote')
     for i, hours in [(2, '1.25'), (3, '2'), (4, '0.5')]:
         page.locator(f'#hours-{i}').fill(hours)
     page.locator('#rate').fill('19.99')

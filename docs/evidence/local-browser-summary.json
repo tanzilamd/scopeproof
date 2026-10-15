@@ -3,6 +3,8 @@
   "checks": [
     "desktop landing page, no horizontal overflow",
     "clearly labelled sample and incomplete estimates",
+    "explicit zero hours completes an estimate; clearing hours restores missing-input status",
+    "incomplete report export identifies missing hours and never invents a final quote",
     "human override and rounded quote arithmetic",
     "edited reply preserved; exported report matches overrides and current quote",
     "copy action or explicit browser clipboard fallback",

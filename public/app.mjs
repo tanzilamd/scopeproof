@@ -63,8 +63,10 @@ function updateQuote() {
   try {
     quote = calculateQuote(state.rows, $('rate').validity.badInput ? 'invalid' : $('rate').value, $('currency').value);
     message('quote-error', '');
-    $('quote-total').textContent = quote.complete ? money(quote.totalMinor, quote) : 'Incomplete';
-    $('quote-detail').textContent = quote.items.length ? quote.complete ? `${quote.items.length} extra-work estimates · subject to client approval` : 'Enter hours for every extra-work request.' : 'No extra work selected.';
+    const missingHours = quote.items.filter(item => item.amountMinor === null).length;
+    $('quote-total').textContent = quote.complete ? money(quote.totalMinor, quote) : 'Estimate incomplete';
+    $('quote-total').classList.toggle('estimate-incomplete', !quote.complete);
+    $('quote-detail').textContent = missingHours ? `${missingHours} extra-work ${missingHours === 1 ? 'request still needs' : 'requests still need'} estimated hours. Enter 0 only when you intend no charge.` : quote.items.length ? `${quote.items.length} extra-work estimates · subject to client approval` : 'No extra work selected.';
     ['copy', 'export', 'print', 'regenerate'].forEach(id => $(id).disabled = false);
     if (!editedReply) { $('reply').value = makeReply(state.input, state.rows, quote); $('reply-status').textContent = 'Template only. Nothing is sent automatically.'; }
     else $('reply-status').textContent = 'Your edited reply is preserved. Decisions or estimates changed; check it or refresh the template before sharing.';
