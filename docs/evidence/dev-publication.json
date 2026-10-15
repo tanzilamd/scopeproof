@@ -7,9 +7,11 @@
     "devchallenge",
     "hf26challenge"
   ],
-  "publicationBlocker": "Already published configuration includes scopeproof.onrender.com, but the current enforced runtime revision 2 does not. CONNECT 403 and Chromium ERR_TUNNEL_CONNECTION_FAILED prevent all public functional checks. Same article ID is preserved for publication after those checks.",
+  "publicationBlocker": "User manual public check found live AI failure. Render credential configuration must be corrected with the real Backboard key, then real public inference and the remaining public workflow verified. Current cloud runtime separately still denies the app hostname; authenticated cloud calls are not public deployment proof.",
   "ownershipVerified": "tanzil_ahmed_e6a826eee8c4",
-  "updatedAt": "2026-10-15T18:50:50.640979+00:00",
+  "updatedAt": "2026-10-15T19:08:06.784296+00:00",
   "officialTemplateAndCategoryRequirementsRechecked": true,
-  "quoteStatusClarificationIncluded": true
+  "quoteStatusClarificationIncluded": true,
+  "currentAutomatedTestsPassed": 51,
+  "currentLocalBrowserChecksPassed": 19
 }
