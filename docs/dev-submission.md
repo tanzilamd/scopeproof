@@ -4,83 +4,88 @@
 
 “Could we add customer login? It should be a quick change.”
 
-For a freelancer, that request can change the agreement, the price and the working relationship.
+A contact form and a login system can both sound like ordinary website work. But if the agreed price covers one and excludes the other, someone has to explain that difference before the work starts.
 
-I wanted ScopeProof to make that conversation easier. It compares an agreement with new client requests and suggests **Included**, **Extra work**, or **Needs clarification**, alongside a short reason and a supporting quote when available. The freelancer can change every decision, enter estimates, edit a reply and export the review. Nothing is sent automatically.
+That is the problem I chose for **ScopeProof**: help a freelancer check a new request against the agreement and prepare a clear response.
 
-Freelance developers and small studios are the potential buyers. They might pay for a repeatable way to review changes and prepare a clear response. I have not validated that willingness to pay or claimed customers, revenue or feedback. My goal for this entry was a small, usable workflow with evidence behind its suggestions.
+The app reviews up to eight requests and suggests **Included**, **Extra work**, or **Needs clarification**. Each suggestion comes with a short reason and a scope quote when one is available. You can change any decision, estimate the extra work, edit a client reply and export the review. Nothing is sent automatically.
+
+Freelance developers and small web studios might pay for that convenience. I have not tested the business assumption with paying users yet.
 
 ## Demo
 
-**[Open ScopeProof on Render](https://scopeproof.onrender.com)** · **[Public repository](https://github.com/tanzilamd/scopeproof)**
+**[Try ScopeProof](https://scopeproof.onrender.com)** · **[View the repository](https://github.com/tanzilamd/scopeproof)**
 
-The free Render service may need time to wake up. Start with **Load illustrative sample**: it is labelled prewritten output, makes no model call and sends nothing. For real inference, acknowledge the hosted-AI disclosure and select **Analyze with AI**.
+The free Render service may need a moment to wake up. Start with **Load illustrative sample**: a fictional agreement for five pages, a contact form and two revision rounds, excluding accounts and online payments.
 
-Here is the fictional before-and-after example:
+The contact form belongs in the original work. Login and payments need a separate discussion. A third revision goes beyond the stated limit. “Make the website more engaging” needs a clearer definition before anyone can sensibly estimate it.
 
-- **Agreement:** a five-page website, a contact form and two revision rounds. “Customer accounts and online payments are excluded.”
-- **New requests:** build the contact form, add login and make a third revision round.
-- **Review:** the form is included; login conflicts with an exclusion; the third revision exceeds the stated limit. Each definitive suggestion has a scope quote to inspect.
-- **Next step:** choose the final decisions, enter your own hours and rate, then edit the proposed reply. For illustration, two extra hours at $50/hour produce a proposed $100 estimate, still requiring client approval.
+Enter two extra hours at $50/hour, for example, and the app calculates a proposed $100 quote for the editable reply. The client still needs to approve it.
 
-Export the scope, quotes, overrides, estimates and edited reply as text, or print to PDF.
+The sample is labelled prewritten output and sends nothing. For real inference, acknowledge the hosted-AI disclosure and click **Analyze with AI**. Copy the reply, download the text report, or print to PDF.
 
-![The actual ScopeProof interface before loading a sample or live result](https://raw.githubusercontent.com/tanzilamd/scopeproof/main/docs/screenshots/overview.png)
+![ScopeProof's actual interface before loading any results](https://raw.githubusercontent.com/tanzilamd/scopeproof/main/docs/screenshots/overview.png)
 
-A [live-analysis screenshot](https://github.com/tanzilamd/scopeproof/blob/main/docs/screenshots/live-review-local.png) records the local app using real Backboard inference, separately from the illustrative sample.
+There is also a [live-analysis screenshot from the local app](https://github.com/tanzilamd/scopeproof/blob/main/docs/screenshots/live-review-local.png), captured with real Backboard inference.
 
 ## Code
 
 {% github tanzilamd/scopeproof %}
 
-The code is MIT licensed, with [setup instructions](https://github.com/tanzilamd/scopeproof#quick-start), [architecture notes](https://github.com/tanzilamd/scopeproof/blob/main/docs/architecture.md) and [recorded test evidence](https://github.com/tanzilamd/scopeproof/tree/main/docs/evidence).
+The application is MIT licensed. The repository includes [setup instructions](https://github.com/tanzilamd/scopeproof#quick-start), [architecture notes](https://github.com/tanzilamd/scopeproof/blob/main/docs/architecture.md) and [test evidence](https://github.com/tanzilamd/scopeproof/tree/main/docs/evidence).
 
 ## How I Built It
 
 I built ScopeProof with OpenAI Codex assistance for implementation and testing.
 
-I kept the architecture to one Node.js 24 application on Render, with static HTML, CSS and JavaScript and no production package dependencies. No login or database is needed for the workflow. Only the server uses the Backboard key; deployment and publishing credentials stay out of the application.
+I kept it to one Node.js 24 app on Render with plain HTML, CSS and JavaScript. There are no production package dependencies, login or database. The Backboard key stays on the server.
 
-Live analysis explicitly selects **Qwen3-32B** as `qwen/qwen3-32b` through Backboard's OpenRouter integration. Its weights are published by the Qwen team under **Apache 2.0**. Each analysis starts a separate conversation with memory and web search off, followed by an attempt to delete the temporary thread. There is no silent fallback to a closed model.
+The live model is **[Qwen3-32B](https://huggingface.co/Qwen/Qwen3-32B)**, selected explicitly as `qwen/qwen3-32b` through Backboard's OpenRouter integration. Qwen publishes its weights under **Apache 2.0**. Each analysis gets a separate conversation, with memory and web search off, followed by an attempt to delete the temporary thread.
 
-I wanted evidence people could inspect. The server requires each request ID exactly once. A quote must be an exact substring of the supplied agreement. An invented quote is removed; a definitive suggestion without verified supporting text becomes **Needs clarification**.
+My main rule for the app was simple: a suggestion should point to something the person can check.
 
-A matching quote proves wording, not interpretation. That is why the person reviewing the request keeps the final decision. Money is calculated in code from user-entered hours, rate and currency, with each line rounded before summing. Missing hours show “Estimate incomplete” with the number of estimates still needed; explicitly entered zero hours are valid. Changing the agreement invalidates old results.
+The server checks every quotation against the agreement and requires a result for every request. Invented quotes are removed; unsupported definitive suggestions become **Needs clarification**. A real quote can still be misinterpreted, so the user keeps the final decision.
 
-### What the recorded checks show
+Prices come from user-entered hours, rate and currency. The calculation runs in code, rounding each line before adding the total. Blank hours show **Estimate incomplete**, with a count of the estimates still needed. An explicitly entered zero is valid. Editing the agreement clears the old review.
 
-- **51 automated tests passed:** validation, quotation checks, arithmetic, overrides, provider failures, timeouts and limits. Provider integrations in this suite are mocked.
-- **19 Chromium checks passed:** desktop/mobile workflow, edited replies, exports, stale results, reset, safe text rendering, print and keyboard navigation. AI responses in this suite are mocked. Populated desktop/mobile axe scans reported zero WCAG 2.1 A/AA violations; this is not a full accessibility audit.
-- **One separate unmocked browser-to-local-app-to-Backboard check** returned the five expected sample labels, verified quotes and 11.96-second model-response latency. It is a repeat of the sample, not five new evaluation examples.
+### Checking that it works
 
-The live comparison used eight fixed synthetic requests: included work, exclusions, limits, ambiguity and hostile instructions. Expected labels preceded inference. Both models used the same prompt and validator through one Backboard key:
+There are **51 passing automated tests** and **19 passing Chromium checks** for validation, quotes, arithmetic, overrides, errors, exports and desktop/mobile use. Provider calls in these suites are mocked. Desktop/mobile axe scans found zero WCAG 2.1 A/AA violations; a full accessibility audit remains outside that coverage.
+
+A separate local browser check used real Backboard inference: five expected sample labels, matching quotes and **11.96 seconds** of model-response latency.
+
+The first public call exposed a deployment mistake: a cloud credential reference was unusable on Render. Setting the Backboard key directly in Render fixed it. My manual public walkthrough then covered decisions, estimates, replies and export.
+
+For the model choice, eight fixed synthetic requests covered exclusions, limits, ambiguity and hostile instructions. Expected labels preceded inference. Both models used the same prompt and validator through one Backboard key.
 
 | Model | Six-request scope/limits case | Two-request hostile/uncertain case |
 | --- | --- | --- |
 | Qwen3-32B | 6/6 expected labels; 27.2 s | 2/2 expected labels; 16.8 s |
 | Qwen3.5-9B | Timed out at the 45 s limit; no result accepted | 2/2 expected labels; 40.7 s |
 
-The timeout is not six wrong answers. These accepted, post-validation results are a small diagnostic set, not a general benchmark or injection-resistance guarantee. The [raw comparison](https://github.com/tanzilamd/scopeproof/blob/main/docs/evidence/comparison.json) preserves the outcomes. It supported keeping Qwen3-32B for this demo. A catalogue-listed Qwen3-8B candidate also returned a provider deprecation error, reinforcing the need to verify actual inference.
+These are accepted results after validation. The timeout is not six incorrect answers, and eight examples are too few for a general accuracy claim. The [full comparison](https://github.com/tanzilamd/scopeproof/blob/main/docs/evidence/comparison.json) supported keeping Qwen3-32B for this demo.
 
-The first successful five-request smoke call was billed at **$0.000145**. The recorded Backboard account balance change through the local live-browser check was **$0.001505**, with auto-reload off. [Billing evidence](https://github.com/tanzilamd/scopeproof/blob/main/docs/evidence/costs.json) records the observation; it is not a forecast of public-service costs. Render uses free compute because the reported promotional credit could not be independently verified through its public API.
+A catalogue-listed Qwen3-8B candidate returned a provider deprecation error. Actual inference matters; the app never silently switches to a closed model.
+
+The first successful five-request call cost **$0.000145**. Through the local live-browser check, the observed balance change was **$0.001505**, with auto-reload off. The [billing evidence](https://github.com/tanzilamd/scopeproof/blob/main/docs/evidence/costs.json) records that testing checkpoint, not future public-service costs.
 
 ## Why Does Open Innovation Matter?
 
-Qwen's published weights and permissive license make a different host, quantization or future local deployment possible while retaining the same scope fixtures, quote checks and review workflow. The MIT application code makes those checks inspectable too.
+Open weights give this project somewhere to go if the current hosting arrangement stops fitting. Qwen's published weights and permissive license allow another host, quantization or a future local deployment to be explored with the same workflow and test cases. The MIT code makes the quote checks inspectable too.
 
-That flexibility matters for freelancers serving clients with different confidentiality requirements and for a small business watching its costs. Backboard made the two-model comparison possible through one key. The slower model's outcome showed why catalogue pricing alone was insufficient for my choice.
+Clients can have different confidentiality requirements, and small businesses need predictable costs. Backboard made a two-model comparison possible through one key. The smaller model's timeout showed why catalogue price alone was insufficient.
 
-The current app still uses hosted inference. I have not implemented offline operation or measured an advantage over a closed-model baseline.
+Today's app still sends input to hosted services. I have not implemented offline inference or measured an advantage over a closed-model baseline.
 
 ## Prize Categories
 
 - **Best Use of Render:** the single Render service hosts the interface and server-side AI integration.
-- **Best Use of Backboard:** the project compares two open-weight models through one Backboard key, with reproducible fixtures, classifications, latency and a recorded timeout. This goes beyond an API-use claim.
+- **Best Use of Backboard:** two open-weight models were compared through one Backboard key, with published cases, classifications, latency and a recorded timeout.
 
-### Practical boundaries
+### A few boundaries
 
-Live input goes to Backboard and its model provider; memory off and attempted thread deletion do not guarantee zero retention. Avoid confidential client material. Models can misread a real quote or follow hostile text. ScopeProof is not legal advice, an invoice or proof of approval.
+Avoid confidential client material in the public demo. Live input goes to Backboard and its model provider; memory off and attempted thread deletion do not guarantee zero retention.
 
-The demo has bounded inputs, timeouts and request limits. Its in-memory quotas reset on restart and are not guaranteed account spending caps. Human review and written client approval remain part of the workflow.
+A model can misread a real quote or follow hostile instructions. ScopeProof is a review aid, not legal advice or proof of client approval. The demo has input limits, timeouts and request quotas, but those in-memory quotas reset on restart and are not guaranteed account spending caps. Extra work still needs human review and written approval.
 
-Credits: the **Qwen team** for Apache-2.0 models; **Backboard, OpenRouter and Render** for hosted services; **Playwright** (Apache 2.0) and **axe-core** (MPL 2.0) for test tooling; and **OpenAI Codex** for implementation and testing assistance.
+Credits: the **Qwen team** for the Apache-2.0 models; **Backboard, OpenRouter and Render** for hosted services; **Playwright** (Apache 2.0) and **axe-core** (MPL 2.0) for test tooling. The application code is MIT licensed.

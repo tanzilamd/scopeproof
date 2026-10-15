@@ -1,0 +1,58 @@
+{
+  "checkedAt": "2026-10-15T19:32:00.278168+00:00",
+  "articleId": 4858102,
+  "ownerVerified": "tanzil_ahmed_e6a826eee8c4",
+  "revision": "More conversational English, clearer first-person goals, real deployment lesson and owner-performed public check; accurate Codex sentence retained.",
+  "wordCount": 1081,
+  "evidenceNumbersMatch": true,
+  "noNewTestsOrPaidModelCalls": true,
+  "bodyReadBackMatches": true,
+  "unpublished": true,
+  "publicationOwner": "user",
+  "links": [
+    {
+      "url": "https://dev.to/challenges/hacktoberfest-week2-2026-10-12",
+      "result": 200
+    },
+    {
+      "url": "https://github.com/tanzilamd/scopeproof",
+      "result": 200
+    },
+    {
+      "url": "https://github.com/tanzilamd/scopeproof#quick-start",
+      "result": 200
+    },
+    {
+      "url": "https://github.com/tanzilamd/scopeproof/blob/main/docs/architecture.md",
+      "result": 200
+    },
+    {
+      "url": "https://github.com/tanzilamd/scopeproof/blob/main/docs/evidence/comparison.json",
+      "result": 200
+    },
+    {
+      "url": "https://github.com/tanzilamd/scopeproof/blob/main/docs/evidence/costs.json",
+      "result": 200
+    },
+    {
+      "url": "https://github.com/tanzilamd/scopeproof/blob/main/docs/screenshots/live-review-local.png",
+      "result": 200
+    },
+    {
+      "url": "https://github.com/tanzilamd/scopeproof/tree/main/docs/evidence",
+      "result": 200
+    },
+    {
+      "url": "https://huggingface.co/Qwen/Qwen3-32B",
+      "result": 200
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tanzilamd/scopeproof/main/docs/screenshots/overview.png",
+      "result": 200
+    },
+    {
+      "url": "https://scopeproof.onrender.com",
+      "result": "user-performed public checks confirmed; agent egress remains restricted"
+    }
+  ]
+}
