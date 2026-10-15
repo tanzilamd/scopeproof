@@ -1,0 +1,11 @@
+{
+  "articleId": 4858102,
+  "status": "draft",
+  "published": false,
+  "contentReadBackVerified": true,
+  "requiredTags": [
+    "devchallenge",
+    "hf26challenge"
+  ],
+  "publicationBlocker": "Public Render functional check awaits runtime egress access to scopeproof.onrender.com. Publish this same article ID after verification; do not create another article."
+}
