@@ -2,11 +2,11 @@
   "url": "https://scopeproof.onrender.com",
   "plan": "free",
   "serviceId": "srv-db8hj4ss728c738odo20",
-  "deployId": "dep-db8i8tmi0phs73fp8ub0",
+  "deployId": "dep-db8iat8m7kps73fuaj8g",
   "providerStatus": "live",
   "commit": "6689d192b1a75466078ab02f99dcead3ad3f8459",
-  "finishedAt": "2026-10-15T19:08:14.742104Z",
-  "publicFunctionalCheck": "User screenshot confirms styled sample view and failed public live analysis. Authentication-error handling and sample-preservation notice have been deployed, but the real Backboard key must be configured directly in Render and public inference reverified. Cloud proxy denial separately remains; see incident and network evidence.",
+  "finishedAt": "2026-10-15T19:12:13.187356Z",
+  "publicFunctionalCheck": "User-performed screenshots show successful Live AI analysis with five expected classifications and matching scope quotes. Quote arithmetic, overrides, edited export, mobile/source-edit checks remain pending manual evidence. Agent runtime proxy restriction remains separately documented.",
   "renderPromotionalCredit": "Not independently verified. Official public API exposes no balance endpoint; free compute was selected. No paid upgrade or top-up was enabled.",
   "previousDeployments": [
     {
@@ -18,6 +18,11 @@
       "deployId": "dep-db8i0l59fdbs73eckcpg",
       "commit": "971a6367e7f6e81f319568637349d9cfbedc6992",
       "finishedAt": "2026-10-15T18:50:35.331231Z"
+    },
+    {
+      "deployId": "dep-db8i8tmi0phs73fp8ub0",
+      "commit": "6689d192b1a75466078ab02f99dcead3ad3f8459",
+      "finishedAt": "2026-10-15T19:08:14.742104Z"
     }
   ]
 }

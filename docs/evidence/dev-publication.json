@@ -7,11 +7,12 @@
     "devchallenge",
     "hf26challenge"
   ],
-  "publicationBlocker": "User manual public check found live AI failure. Render credential configuration must be corrected with the real Backboard key, then real public inference and the remaining public workflow verified. Current cloud runtime separately still denies the app hostname; authenticated cloud calls are not public deployment proof.",
+  "publicationBlocker": "Public live AI now passed user-performed screenshot verification. Public quote arithmetic, override, edited reply/export, and mobile/source-edit checks still need manual results because the agent runtime separately cannot reach the app.",
   "ownershipVerified": "tanzil_ahmed_e6a826eee8c4",
   "updatedAt": "2026-10-15T19:08:06.784296+00:00",
   "officialTemplateAndCategoryRequirementsRechecked": true,
   "quoteStatusClarificationIncluded": true,
   "currentAutomatedTestsPassed": 51,
-  "currentLocalBrowserChecksPassed": 19
+  "currentLocalBrowserChecksPassed": 19,
+  "publicLiveInferenceManualCheckPassed": true
 }

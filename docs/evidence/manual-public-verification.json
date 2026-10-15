@@ -1,0 +1,45 @@
+{
+  "recordedAt": "2026-10-15T19:15:23.797864+00:00",
+  "method": "User-performed public browser check; user supplied four screenshots in conversation",
+  "targetReported": "https://scopeproof.onrender.com",
+  "addressBarVisibleInScreenshots": false,
+  "agentPerformedPublicBrowserCheck": false,
+  "newAgentInferenceCalls": 0,
+  "observed": {
+    "styledAgreementAndReviewPanelsVisible": true,
+    "sourcePill": "Live AI",
+    "successNotice": "Live AI suggestions are ready. Check the quotes and choose your own decisions.",
+    "requestCount": 5,
+    "decisions": [
+      "Included",
+      "Extra work",
+      "Extra work",
+      "Extra work",
+      "Needs clarification"
+    ],
+    "visibleVerbatimQuotes": [
+      "Build a five-page website with a contact enquiry form.",
+      "Customer accounts and online payments are excluded.",
+      "The price includes two revision rounds."
+    ],
+    "ambiguousRequestHasNoSupportingQuote": true,
+    "quoteStatus": "Estimate incomplete",
+    "missingHourEstimates": 3,
+    "replyTemplateVisible": true
+  },
+  "nearbyBillingEvent": {
+    "date": "2026-10-15T19:12:50",
+    "model": "qwen/qwen3-32b",
+    "input_tokens": 356,
+    "output_tokens": 432,
+    "amount_deducted_usd": 0.000149,
+    "credit_type": "regular"
+  },
+  "billingCorrelationNote": "A new qwen/qwen3-32b billing event was observed around this user-performed check. No agent inference call was made in this interval. The screenshots do not display a provider request ID or latency.",
+  "stillRequiresPublicManualEvidence": [
+    "entered-hour quote arithmetic",
+    "human decision override and revised total",
+    "edited reply and downloaded report consistency",
+    "mobile usability and source-edit invalidation"
+  ]
+}

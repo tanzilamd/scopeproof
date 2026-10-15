@@ -19,7 +19,8 @@
     "localBrowserPassed": 19,
     "providerTestsMocked": true,
     "newPaidInferenceCallsByAgent": 0,
-    "publicPostCorrectionInference": "pending"
+    "publicPostCorrectionInference": "Passed user-performed check: five expected classifications and matching scope quotes; see manual-public-verification.json"
   },
-  "operatorLogApi": "Scoped Render logs endpoint returned an HTML HTTP 403 access-denial page; raw logs were not printed."
+  "operatorLogApi": "Scoped Render logs endpoint returned an HTML HTTP 403 access-denial page; raw logs were not printed.",
+  "resolutionEvidence": "Subsequent user-supplied screenshots show successful public Live AI analysis after the user followed Render credential configuration instructions."
 }
