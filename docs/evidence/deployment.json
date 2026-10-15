@@ -2,10 +2,17 @@
   "url": "https://scopeproof.onrender.com",
   "plan": "free",
   "serviceId": "srv-db8hj4ss728c738odo20",
-  "deployId": "dep-db8hj5cs728c738odpi0",
+  "deployId": "dep-db8i0l59fdbs73eckcpg",
   "providerStatus": "live",
-  "commit": "6958444ffb49ed3b9c30f062199725e744f655cd",
-  "finishedAt": "2026-10-15T18:21:43.077868Z",
-  "publicFunctionalCheck": "pending: onboarding egress policy has not yet applied the newly created hostname",
-  "renderPromotionalCredit": "Not independently verified. Official public API exposes no balance endpoint; free compute was selected. No paid upgrade or top-up was enabled."
+  "commit": "971a6367e7f6e81f319568637349d9cfbedc6992",
+  "finishedAt": "2026-10-15T18:50:35.331231Z",
+  "publicFunctionalCheck": "Blocked before destination HTTP: current enforced runtime revision 2 lacks scopeproof.onrender.com, despite the hostname being present in the already published environment configuration. See network-verification.json.",
+  "renderPromotionalCredit": "Not independently verified. Official public API exposes no balance endpoint; free compute was selected. No paid upgrade or top-up was enabled.",
+  "previousDeployments": [
+    {
+      "deployId": "dep-db8hj5cs728c738odpi0",
+      "commit": "6958444ffb49ed3b9c30f062199725e744f655cd",
+      "finishedAt": "2026-10-15T18:21:43.077868Z"
+    }
+  ]
 }

@@ -7,5 +7,9 @@
     "devchallenge",
     "hf26challenge"
   ],
-  "publicationBlocker": "Public Render functional check awaits runtime egress access to scopeproof.onrender.com. Publish this same article ID after verification; do not create another article."
+  "publicationBlocker": "Already published configuration includes scopeproof.onrender.com, but the current enforced runtime revision 2 does not. CONNECT 403 and Chromium ERR_TUNNEL_CONNECTION_FAILED prevent all public functional checks. Same article ID is preserved for publication after those checks.",
+  "ownershipVerified": "tanzil_ahmed_e6a826eee8c4",
+  "updatedAt": "2026-10-15T18:50:50.640979+00:00",
+  "officialTemplateAndCategoryRequirementsRechecked": true,
+  "quoteStatusClarificationIncluded": true
 }

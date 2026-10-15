@@ -1,26 +1,45 @@
-[
-  {
-    "url": "https://dev.to/challenges/hacktoberfest-week2-2026-10-12",
-    "status": 200
-  },
-  {
-    "url": "https://github.com/tanzilamd/scopeproof",
-    "status": 200
-  },
-  {
-    "url": "https://github.com/tanzilamd/scopeproof#quick-start",
-    "status": 200
-  },
-  {
-    "url": "https://github.com/tanzilamd/scopeproof/blob/main/docs/architecture.md",
-    "status": 200
-  },
-  {
-    "url": "https://github.com/tanzilamd/scopeproof/blob/main/docs/testing.md",
-    "status": 200
-  },
-  {
-    "url": "https://github.com/tanzilamd/scopeproof/tree/main/docs/evidence",
-    "status": 200
-  }
-]
+{
+  "checkedAt": "2026-10-15T18:50:00.497806+00:00",
+  "links": [
+    {
+      "url": "https://dev.to/challenges/hacktoberfest-week2-2026-10-12",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/tanzilamd/scopeproof",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/tanzilamd/scopeproof#quick-start",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/tanzilamd/scopeproof/blob/main/docs/architecture.md",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/tanzilamd/scopeproof/blob/main/docs/evidence/comparison.json",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/tanzilamd/scopeproof/blob/main/docs/evidence/costs.json",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/tanzilamd/scopeproof/blob/main/docs/screenshots/live-review-local.png",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/tanzilamd/scopeproof/tree/main/docs/evidence",
+      "status": 200
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tanzilamd/scopeproof/main/docs/screenshots/overview.png",
+      "status": 200
+    },
+    {
+      "url": "https://scopeproof.onrender.com",
+      "status": "blocked by current environment proxy before destination HTTP"
+    }
+  ]
+}
