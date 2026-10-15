@@ -1,0 +1,21 @@
+{
+  "name": "scopeproof",
+  "version": "1.0.0",
+  "private": true,
+  "description": "An evidence-first freelance scope-change review assistant",
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "start": "node --use-env-proxy --env-file-if-exists=.env server.mjs",
+    "test": "node --test test/*.test.mjs",
+    "test:browser": "python test/browser.py",
+    "check:access": "node --use-env-proxy --env-file-if-exists=.env scripts/check-access.mjs",
+    "test:live": "node --use-env-proxy --env-file-if-exists=.env scripts/live-eval.mjs"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "axe-core": "4.14.0"
+  }
+}

@@ -1,0 +1,2 @@
+# Browser checks only; no Python is required by the deployed app.
+playwright==1.62.0

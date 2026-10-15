@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: scopeproof
+    runtime: node
+    plan: free
+    buildCommand: npm ci --ignore-scripts
+    startCommand: npm start
+    healthCheckPath: /healthz
+    autoDeployTrigger: off
+    envVars:
+      - key: NODE_VERSION
+        value: 24.19.0
+      - key: BACKBOARD_API_KEY
+        sync: false
+      - key: BACKBOARD_MODEL
+        sync: false
+      - key: LIVE_ANALYSIS_ENABLED
+        value: "false"
+      - key: MAX_LIVE_CALLS
+        value: "20"

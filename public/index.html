@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Turn freelance scope changes into a clear, evidence-backed conversation. Review requests, estimate extra work, and draft a client reply.">
+  <meta name="theme-color" content="#192c29">
+  <title>ScopeProof — Keep the work. Protect the scope.</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to workspace</a>
+  <header class="site-header wrap">
+    <a href="/" class="brand"><span class="brand-mark" aria-hidden="true">s<span>p</span></span>ScopeProof<span class="beta">BETA</span></a>
+    <nav aria-label="Main"><a href="#how-it-works">How it works</a><a href="https://github.com/tanzilamd/scopeproof" target="_blank" rel="noopener noreferrer">Open source <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main class="wrap">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy"><p class="eyebrow"><span class="status-dot"></span> A calmer way to handle “one more thing”</p>
+        <h1 id="hero-title">Keep the work.<br><span>Protect the scope.</span></h1>
+        <p class="hero-description">Turn new client requests into a clear conversation.<br class="desktop-break"> Compare the agreement, price the extras, and reply with confidence.</p>
+        <div class="hero-actions"><a class="button primary" href="#workspace">Review a request <span aria-hidden="true">↗</span></a><button class="button quiet" type="button" id="sample-top">Try the sample <span aria-hidden="true">→</span></button></div>
+        <p class="hero-note">No account. No auto-sending. You make the final call.</p>
+      </div>
+      <aside class="hero-card" aria-label="Illustrative scope review example">
+        <div class="card-caption"><span class="tiny-mark" aria-hidden="true">↗</span> THE SCOPE CHECK <span class="example-pill">Illustration</span></div>
+        <p class="client-message">“Could we add customer login<br>to the website?”</p>
+        <div class="example-rule"></div>
+        <span class="badge extra">↗ Extra work</span>
+        <p class="example-reason">A clear boundary. A better conversation.</p>
+        <blockquote>“Customer accounts and online<br>payments are excluded.”</blockquote>
+        <div class="verified-line"><span aria-hidden="true">✓</span> Evidence from your agreement</div>
+      </aside>
+    </section>
+    <ol class="steps" id="how-it-works" aria-label="How it works"><li><span>01</span><div><strong>Start with the agreement</strong><p>Include exclusions and quantity limits.</p></div></li><li><span>02</span><div><strong>Review the evidence</strong><p>Check every suggestion. Change any decision.</p></div></li><li><span>03</span><div><strong>Agree on what comes next</strong><p>Estimate the extras and prepare your reply.</p></div></li></ol>
+    <section id="workspace" aria-labelledby="workspace-title">
+      <div class="workspace-heading"><div><p class="eyebrow">YOUR SCOPE WORKSPACE</p><h2 id="workspace-title">From “quick request” to clear next steps.</h2></div><button id="reset" class="text-button" type="button">↺ Start over</button></div>
+      <div class="workspace-grid">
+        <section class="panel input-panel" aria-labelledby="agreement-title">
+          <div class="panel-heading"><span class="step-number">1</span><div><h3 id="agreement-title">The agreement & the ask</h3><p>A little context makes a better review.</p></div></div>
+          <form id="review-form">
+            <label for="project">Project name <span class="optional">optional</span></label>
+            <input id="project" name="project" maxlength="100" placeholder="e.g. Northstar studio website" autocomplete="off">
+            <div class="label-row"><label for="scope">Original agreement</label><span id="scope-count" class="counter">0 / 6,000</span></div>
+            <textarea id="scope" name="scope" rows="7" minlength="20" maxlength="6000" required aria-describedby="scope-help" placeholder="Paste the agreed deliverables, exclusions, quantities and revision limits…"></textarea>
+            <p id="scope-help" class="field-help">Include what is out of scope, not just what is included.</p>
+            <div class="label-row"><label for="requests">New client requests</label><span id="request-count" class="counter">0 / 8</span></div>
+            <textarea id="requests" name="requests" rows="5" maxlength="4007" required aria-describedby="requests-help" placeholder="Add customer login.&#10;Build the contact enquiry form.&#10;Make a third revision round."></textarea>
+            <p id="requests-help" class="field-help">One request per line. Up to 8, each at most 500 characters.</p>
+            <div class="privacy-note"><span aria-hidden="true">◇</span><p>Live analysis sends this text to <strong>Backboard and its model provider</strong>. Avoid sensitive client information. Hosted providers may retain data.</p></div>
+            <label class="checkbox-label"><input id="consent" type="checkbox"> <span>I understand and want to send this text for live AI analysis.</span></label>
+            <button class="button primary full" type="submit" id="analyze">Analyze with AI <span aria-hidden="true">↗</span></button>
+            <p id="provider-status" class="provider-status">Checking live analysis availability…</p>
+            <div class="or-line"><span>or explore without sending anything</span></div>
+            <button class="button secondary full" type="button" id="sample">Load illustrative sample <span aria-hidden="true">→</span></button>
+          </form>
+        </section>
+        <section class="panel review-panel" aria-labelledby="review-title" aria-busy="false">
+          <div class="panel-heading"><span class="step-number">2</span><div><h3 id="review-title">Your scope review</h3><p>Evidence first. Your judgment, always.</p></div><span id="review-source" class="source-pill" hidden></span></div>
+          <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+          <div id="error" class="error" role="alert" hidden></div>
+          <div id="empty" class="empty-state"><div class="document-art" aria-hidden="true"><div class="art-header"></div><div></div><div></div><div></div><span>✓</span></div><h4>Make the scope visible.</h4><p>Your request-by-request review will appear here,<br>with reasons and quotes you can check.</p><button class="text-button" type="button" id="sample-empty">See how it works →</button><div class="empty-chips"><span>Included</span><span>Extra work</span><span>Needs clarification</span></div></div>
+          <div id="results" hidden>
+            <p id="review-summary" class="review-summary" tabindex="-1"></p>
+            <div id="review-rows"></div>
+            <p class="review-caution">Exact quotes are checked against your text. That verifies wording, not contractual meaning. Review every decision; this is not legal advice.</p>
+            <section class="quote-section" aria-labelledby="quote-title"><div class="section-label"><span class="step-number">3</span><h3 id="quote-title">Price the extra work</h3></div><p class="field-help">Your hours and rate. An estimate, never an approved charge.</p>
+              <div class="quote-controls"><div><label for="rate">Hourly rate</label><input id="rate" type="number" min="0" max="100000" step="0.01" value="50" inputmode="decimal"></div><div><label for="currency">Currency</label><select id="currency"><option>USD</option><option>EUR</option><option>GBP</option><option>BDT</option><option>CAD</option><option>AUD</option><option>INR</option><option>JPY</option><option>KWD</option></select></div></div>
+              <div id="quote-error" class="error" role="alert" hidden></div>
+              <div class="quote-total"><div><span>Proposed additional total</span><small id="quote-detail"></small></div><strong id="quote-total">—</strong></div>
+            </section>
+            <section class="reply-section" aria-labelledby="reply-title"><div class="reply-heading"><h3 id="reply-title">A reply you can make your own</h3><button id="regenerate" type="button" class="text-button">Refresh template</button></div><label for="reply" class="sr-only">Editable client reply</label><textarea id="reply" rows="10" maxlength="16000"></textarea><p id="reply-status" class="field-help">Template only. Nothing is sent automatically.</p>
+              <div class="export-actions"><button id="copy" class="button primary" type="button">Copy reply</button><button id="export" class="button secondary" type="button">Export report ↓</button><button id="print" class="text-button" type="button">Print / PDF</button></div>
+            </section>
+            <p id="analysis-meta" class="analysis-meta"></p>
+          </div>
+        </section>
+      </div>
+    </section>
+    <section class="principles" aria-label="Product principles"><div><span aria-hidden="true">◎</span><h3>You stay in control</h3><p>Override any suggestion. Set your own estimates. Send your reply yourself.</p></div><div><span aria-hidden="true">⌁</span><h3>Evidence over confidence</h3><p>Verbatim quotes, visible uncertainty, and a clear path to clarification.</p></div><div><span aria-hidden="true">↗</span><h3>Open by design</h3><p>Open source code. Explicit model selection. No hidden model fallback.</p></div></section>
+    <pre id="print-report" aria-hidden="true"></pre>
+  </main>
+  <footer class="wrap"><a class="brand footer-brand" href="/">ScopeProof<span class="footer-dot">.</span></a><p>Better boundaries. Better working relationships.</p><a href="https://github.com/tanzilamd/scopeproof#privacy-and-limitations" target="_blank" rel="noopener noreferrer">Privacy & limitations ↗</a></footer>
+</body>
+</html>
