@@ -4,13 +4,13 @@ This repository began with only README and LICENSE. No previous implementation o
 
 ## Deterministic / mocked checks
 
-`npm test`: **49 tests passed**, 0 failed/skipped/cancelled in the current run. Covers input bounds, missing/duplicate results, exact/paraphrased/invented quotes, unsupported decisions, integer quote arithmetic, currency precision, overrides, incomplete estimates, edited report content, credential/configuration failure, HTTP validation/security headers, unsafe file access, quotas, concurrent requests, provider errors, timeout, model confirmation, failed provider status and prompt/data separation.
+`npm test`: **51 tests passed**, 0 failed/skipped/cancelled in the current run. Covers input bounds, missing/duplicate results, exact/paraphrased/invented quotes, unsupported decisions, integer quote arithmetic, currency precision, overrides, incomplete estimates, edited report content, credential/configuration failure, HTTP validation/security headers, unsafe file access, quotas, concurrent requests, provider errors, timeout, model confirmation, failed provider status and prompt/data separation.
 
 These tests mock inference. They verify application behavior, not semantic model quality. The first run had a mistaken expected rounding total in a test: per-line rounding produces $74.97, not $74.96. The expectation was corrected to the independently calculated total; application arithmetic was unchanged.
 
 ## Browser checks
 
-Real system Chromium with Python Playwright 1.62.0: **18 checks passed**. Desktop 1440px and mobile 390px; sample identification; overrides; quote arithmetic; edited replies; export consistency; clipboard behavior/fallback; invalid quote inputs; source-edit invalidation; visible provider failure; literal malicious-text rendering; discarded in-flight stale results; reset; print; keyboard skip navigation; no JavaScript errors. AI success/error cases in this suite are explicitly network-mocked and make no paid calls.
+Real system Chromium with Python Playwright 1.62.0: **19 checks passed**. Desktop 1440px and mobile 390px; sample identification; overrides; quote arithmetic; edited replies; export consistency; clipboard behavior/fallback; invalid quote inputs; source-edit invalidation; visible provider failure; literal malicious-text rendering; discarded in-flight stale results; reset; print; keyboard skip navigation; no JavaScript errors. AI success/error cases in this suite are explicitly network-mocked and make no paid calls.
 
 Pinned axe-core 4.14.0 found **zero WCAG 2.1 A/AA violations** in populated desktop/mobile scans after contrast and accessible-name fixes. Scans use reduced motion so transient row fade opacity does not distort contrast measurements. This is automated coverage, not a claim of full WCAG conformance or a screen-reader audit. Actual browser screenshots are captured by the suite in ignored `test-results/`; publication screenshots are labelled separately.
 
@@ -33,3 +33,7 @@ Eight hand-authored requests are not a benchmark, guarantee against injection, c
 ## Missing-estimate status clarification
 
 The original “Incomplete” quote label meant one or more Extra work requests had blank estimated hours, not an unfinished feature. The UI now says **Estimate incomplete** and counts the requests still needing hours. Browser checks verify blank → explicit zero → cleared input → entered hours transitions, and confirm an incomplete exported report identifies unknown hours without inventing a final total. The existing deterministic tests distinguish missing and zero hours. The current 18 browser checks and 49 automated tests passed after this copy/layout change. These deterministic quote interactions make no paid AI calls.
+
+## Deployment authentication regression
+
+A user-provided public screenshot showed a failed live call with the earlier illustrative sample still displayed. No live result was accepted. Deployment metadata inspection found that a cloud-managed credential reference had been copied into Render. That reference is resolved by the cloud proxy and must not be treated as a portable Render credential. The real key must be entered securely in the existing Render service. The app now distinguishes HTTP 401/403, adds a read-only startup access diagnostic that logs only status, and explicitly identifies any sample preserved after a failed live call. The current 51 automated tests and 19 local browser checks pass, including the failure-state regression. Provider behavior in these regression checks is mocked. Public inference after the credential correction remains unverified.

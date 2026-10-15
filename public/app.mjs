@@ -99,7 +99,10 @@ $('review-form').addEventListener('submit', async event => {
     const data = await response.json(); if (current !== generation) { message('notice', 'Inputs changed during analysis. The stale result was discarded. Run a new review.'); return; }
     if (!response.ok) throw new Error(data.error || 'Analysis failed. Please try later.');
     showReview(input, data.rows, data.meta);
-  } catch (error) { if (current === generation) { message('notice', ''); message('error', error.name === 'TimeoutError' ? 'The request timed out. No automatic retry was made. The provider may still bill this attempt.' : error.message); } }
+  } catch (error) { if (current === generation) {
+    message('notice', state?.meta.mode === 'sample' ? 'Live analysis failed. The results below are still the prewritten illustrative sample, not live AI output.' : state ? 'The new analysis failed. Your previous review is preserved; it has not been updated.' : '');
+    message('error', error.name === 'TimeoutError' ? 'The request timed out. No automatic retry was made. The provider may still bill this attempt.' : error.message);
+  } }
   finally { setBusy(false); checkStatus(); }
 });
 $('reset').addEventListener('click', () => {

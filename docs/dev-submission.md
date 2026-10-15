@@ -49,8 +49,8 @@ A matching quote proves wording, not interpretation. That is why the person revi
 
 ### What the recorded checks show
 
-- **49 automated tests passed:** validation, quotation checks, arithmetic, overrides, provider failures, timeouts and limits. Provider integrations in this suite are mocked.
-- **18 Chromium checks passed:** desktop/mobile workflow, edited replies, exports, stale results, reset, safe text rendering, print and keyboard navigation. AI responses in this suite are mocked. Populated desktop/mobile axe scans reported zero WCAG 2.1 A/AA violations; this is not a full accessibility audit.
+- **51 automated tests passed:** validation, quotation checks, arithmetic, overrides, provider failures, timeouts and limits. Provider integrations in this suite are mocked.
+- **19 Chromium checks passed:** desktop/mobile workflow, edited replies, exports, stale results, reset, safe text rendering, print and keyboard navigation. AI responses in this suite are mocked. Populated desktop/mobile axe scans reported zero WCAG 2.1 A/AA violations; this is not a full accessibility audit.
 - **One separate unmocked browser-to-local-app-to-Backboard check** returned the five expected sample labels, verified quotes and 11.96-second model-response latency. It is a repeat of the sample, not five new evaluation examples.
 
 The live comparison used eight fixed synthetic requests: included work, exclusions, limits, ambiguity and hostile instructions. Expected labels preceded inference. Both models used the same prompt and validator through one Backboard key:

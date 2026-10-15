@@ -2,7 +2,7 @@ import http from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { ReviewError, validateInput } from './public/domain.mjs';
-import { createBackboard, liveConfiguration } from './lib/backboard.mjs';
+import { createBackboard, liveConfiguration, checkBackboardAccess } from './lib/backboard.mjs';
 
 const root = new URL('./public/', import.meta.url);
 const files = new Map([['/', ['index.html', 'text/html; charset=utf-8']], ['/styles.css', ['styles.css', 'text/css; charset=utf-8']], ['/app.mjs', ['app.mjs', 'text/javascript; charset=utf-8']], ['/domain.mjs', ['domain.mjs', 'text/javascript; charset=utf-8']]]);
@@ -63,5 +63,11 @@ export function createApp({ env = process.env, analyze = createBackboard({ env }
 }
 if (process.argv[1] && fileURLToPath(import.meta.url) === fileURLToPath(new URL(`file://${process.argv[1]}`))) {
   const port = Number(process.env.PORT) || 3000;
-  createApp().listen(port, '0.0.0.0', () => console.log(`ScopeProof listening on port ${port}; live analysis ${liveConfiguration() ? 'configured' : 'disabled'}.`));
+  createApp().listen(port, '0.0.0.0', async () => {
+    console.log(`ScopeProof listening on port ${port}; live analysis ${liveConfiguration() ? 'configured' : 'disabled'}.`);
+    if (liveConfiguration()) {
+      const access = await checkBackboardAccess();
+      console.log(access.checked ? `Backboard access check: HTTP ${access.httpStatus}.` : `Backboard access check: ${access.reason}.`);
+    }
+  });
 }

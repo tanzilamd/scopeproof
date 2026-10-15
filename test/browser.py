@@ -96,6 +96,16 @@ with sync_playwright() as p:
     expect(page.locator('#error')).to_contain_text('mocked browser test')
     page.unroute('**/api/analyze')
     passed('provider error is visible and busy state clears (mocked integration)')
+    page.locator('#sample').click()
+    page.locator('#consent').check()
+    page.route('**/api/analyze', lambda route: route.fulfill(status=503, content_type='application/json', body=json.dumps({'error':'Live AI is unavailable because its service authentication failed.'})))
+    page.locator('#analyze').click()
+    expect(page.locator('#error')).to_contain_text('authentication failed')
+    expect(page.locator('#notice')).to_contain_text('still the prewritten illustrative sample, not live AI output')
+    expect(page.locator('#review-source')).to_have_text('Illustrative sample')
+    expect(page.locator('.review-row')).to_have_count(5)
+    page.unroute('**/api/analyze')
+    passed('failed live analysis explicitly preserves labelled sample, never relabels it as AI output (mocked integration)')
     injection = '<img src=x onerror="window.scopeproofXss=true">'
     payload = {'rows':[{'id':1,'request':injection,'suggested':'Needs clarification','decision':'Needs clarification','reason':injection,'quote':None,'evidence':'No supporting quote','hours':''}], 'meta':{'mode':'live','model':'MOCK ONLY','provider':'browser test','at':'test','latencyMs':1,'inputTokens':1,'outputTokens':1}}
     page.locator('#requests').fill('A deliberately mocked browser output test.')

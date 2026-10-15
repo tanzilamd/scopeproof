@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { once } from 'node:events';
 import { createApp } from '../server.mjs';
-import { createBackboard, SYSTEM_PROMPT } from '../lib/backboard.mjs';
+import { createBackboard, SYSTEM_PROMPT, checkBackboardAccess } from '../lib/backboard.mjs';
 import { SAMPLE, sampleRows } from '../public/domain.mjs';
 const env = { BACKBOARD_API_KEY: 'fake-key-for-mocked-tests', BACKBOARD_MODEL: 'qwen/qwen3-32b', LIVE_ANALYSIS_ENABLED: 'true' };
 async function withServer(options, run) {
@@ -50,8 +50,21 @@ test('hostile input remains data in separate prompt field (mocked, not live qual
   await createBackboard({ env, fetchImpl: async (_, options) => { if (options.method === 'POST') captured = JSON.parse(options.body); return Response.json(options.method === 'DELETE' ? {} : providerResponse()); } })({ ...SAMPLE, scope: `${SAMPLE.scope}\n${hostile}` });
   assert.equal(captured.system_prompt, SYSTEM_PROMPT); assert.ok(!captured.system_prompt.includes(hostile)); assert.ok(JSON.parse(captured.content).agreement.includes(hostile)); assert.ok(!captured.content.includes(env.BACKBOARD_API_KEY));
 });
-for (const status of [401, 429, 500]) test(`provider ${status} returns safe error without raw details`, async () => {
-  await assert.rejects(createBackboard({ env, fetchImpl: async () => new Response('provider body with fake-secret', { status }) })(SAMPLE), e => e.status === 502 && !e.message.includes('fake-secret'));
+for (const status of [401, 403, 429, 500]) test(`provider ${status} returns safe error without raw details`, async () => {
+  await assert.rejects(createBackboard({ env, fetchImpl: async () => new Response('provider body with fake-secret', { status }) })(SAMPLE), e => e.status === ([401,403].includes(status) ? 503 : 502) && !e.message.includes('fake-secret'));
+});
+test('read-only access diagnostic reports status only, never credential or billing values', async () => {
+  for (const status of [200,401,403]) {
+    const result = await checkBackboardAccess({ env, fetchImpl: async (url, options) => {
+      assert.equal(url, 'https://app.backboard.io/api/billing/balance');
+      assert.equal(options.headers['X-API-Key'], env.BACKBOARD_API_KEY);
+      assert.equal(options.method, undefined);
+      return new Response('private billing detail fake-secret', { status });
+    } });
+    assert.deepEqual(result, { checked:true, httpStatus:status });
+  }
+  assert.deepEqual(await checkBackboardAccess({ env:{} }), { checked:false, reason:'missing credential' });
+  assert.deepEqual(await checkBackboardAccess({ env,fetchImpl:async()=>{throw Error('fake-secret');} }), { checked:false,reason:'connection unavailable' });
 });
 test('network errors and timeouts fail safely without automatic retry', async () => {
   let calls = 0;

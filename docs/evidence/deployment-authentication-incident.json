@@ -1,0 +1,25 @@
+{
+  "observedAt": "2026-10-15T19:06:32.800960+00:00",
+  "publicEvidenceSource": "User-provided screenshot in conversation",
+  "userObservedError": "The AI provider could not complete the review. No result was accepted. Please try later.",
+  "screenshotSourcePill": "Illustrative sample",
+  "liveInferenceSucceeded": false,
+  "deployedCredentialPresence": true,
+  "deployedCredentialMatchesInjectedCloudReference": true,
+  "injectedReferenceHasPlatformMarker": true,
+  "diagnosis": "A cloud-managed credential reference was copied into Render. The credential is resolved by the cloud session proxy at Backboard destinations; this reference is not a portable raw credential for Render. The user must configure the real Backboard key securely in the existing Render service. No credential values are included.",
+  "requiredSecureAction": "Render dashboard \u2192 existing scopeproof service \u2192 Environment \u2192 replace BACKBOARD_API_KEY with the real Backboard key \u2192 save and deploy. Never send key in chat.",
+  "codeCorrections": [
+    "401/403 give a safe service-authentication error instead of a generic retry suggestion",
+    "failed live calls explicitly identify any preserved sample as prewritten, not AI output",
+    "read-only startup Backboard access check logs only HTTP status, never key or response body"
+  ],
+  "currentVerification": {
+    "automatedPassed": 51,
+    "localBrowserPassed": 19,
+    "providerTestsMocked": true,
+    "newPaidInferenceCallsByAgent": 0,
+    "publicPostCorrectionInference": "pending"
+  },
+  "operatorLogApi": "Scoped Render logs endpoint returned an HTML HTTP 403 access-denial page; raw logs were not printed."
+}
